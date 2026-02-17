@@ -2,7 +2,7 @@
 
 PoolRide is a **campus-focused carpooling platform** designed to reduce single-occupancy commuting and promote sustainable travel around university campuses.
 
-The system enables verified campus users to post rides and allows both campus and guest users to book available seats. Each shared ride visibly tracks **CO₂ emission savings**, reinforcing eco-conscious commuting.
+The software enables verified campus users to post rides and allows both campus and guest users to book available seats. Each shared ride visibly tracks **CO₂ emission savings**, reinforcing eco-conscious commuting.
 
 > PoolRide does not manage campus entry permissions. Drop-offs are handled at the campus gate as per institutional security policies.
 
@@ -168,4 +168,5 @@ The model is simple, transparent, and configurable for future upgrades.
 ## Backend
 
 ## python -m uvicorn main:app --reload --host 127.0.0.1 --port 8000 in /backend
+
 ## python main.py in /mobile_app
