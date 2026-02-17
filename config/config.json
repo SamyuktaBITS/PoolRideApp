@@ -1,0 +1,48 @@
+{
+  "app": {
+    "name": "PoolRide",
+    "environment": "development"
+  },
+
+  "user_access": {
+    "enable_campus_verification": true,
+    "allowed_campus_domains": [
+      "wilp.bits-pilani.ac.in",
+      "college.edu",
+      "university.ac.in",
+      "campus.edu.in"
+    ],
+    "guest_verification_method": "otp"
+  },
+
+  "ride_rules": {
+    "allow_guests_by_default": false,
+    "guest_drop_policy": "GATE_ONLY",
+    "default_gate_name": "Main Campus Gate"
+  },
+
+  "emissions": {
+    "default_emission_factor_kg_per_km": 0.21,
+    "vehicle_type_factors": {
+      "car": 0.21,
+      "scooter": 0.10,
+      "van": 0.30
+    }
+  },
+
+  "limits": {
+    "max_bookings_per_day": 5,
+    "max_cancellations_per_week": 3,
+    "otp_expiry_minutes": 10
+  },
+
+  "notifications": {
+    "enable_in_app_notifications": true,
+    "enable_push_notifications": false
+  },
+
+  "database": {
+    "type": "sqlite",
+    "path": "backend/data/carpool.db"
+  }
+}

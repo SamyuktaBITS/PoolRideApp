@@ -1,0 +1,249 @@
+ScreenManager:
+    RegisterScreen:
+        name: "register"
+    VerifyScreen:
+        name: "verify"
+    HomeScreen:
+        name: "home"
+
+<RegisterScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: "14dp"
+        padding: "18dp"
+
+        MDTopAppBar:
+            title: "PoolRide"
+            elevation: 0
+
+        # HERO / BRAND CARD
+        MDCard:
+            padding: "16dp"
+            radius: [26, 26, 26, 26]
+            size_hint_y: None
+            height: self.minimum_height
+
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: "10dp"
+                adaptive_height: True
+
+                MDLabel:
+                    text: "Ride together. Breathe better."
+                    font_style: "H4"
+                    halign: "center"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDLabel:
+                    text: "Campus carpools to the gate • Security handled at entry"
+                    theme_text_color: "Hint"
+                    halign: "center"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                # FUN ECO BUBBLES
+                MDBoxLayout:
+                    spacing: "10dp"
+                    adaptive_height: True
+
+                    MDCard:
+                        radius: [18, 18, 18, 18]
+                        padding: "10dp"
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: "4dp"
+                            adaptive_height: True
+                            MDLabel:
+                                text: "🌍"
+                                halign: "center"
+                            MDLabel:
+                                text: "CO₂ Saved"
+                                halign: "center"
+                                theme_text_color: "Secondary"
+
+                    MDCard:
+                        radius: [18, 18, 18, 18]
+                        padding: "10dp"
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: "4dp"
+                            adaptive_height: True
+                            MDLabel:
+                                text: "💸"
+                                halign: "center"
+                            MDLabel:
+                                text: "Costs Down"
+                                halign: "center"
+                                theme_text_color: "Secondary"
+
+                    MDCard:
+                        radius: [18, 18, 18, 18]
+                        padding: "10dp"
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: "4dp"
+                            adaptive_height: True
+                            MDLabel:
+                                text: "🚗"
+                                halign: "center"
+                            MDLabel:
+                                text: "Shared Rides"
+                                halign: "center"
+                                theme_text_color: "Secondary"
+
+                MDLabel:
+                    id: quote_label
+                    text: app.eco_quote
+                    theme_text_color: "Secondary"
+                    halign: "center"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+        # FORM CARD
+        MDCard:
+            padding: "16dp"
+            radius: [26, 26, 26, 26]
+            size_hint_y: None
+            height: self.minimum_height
+
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: "12dp"
+                adaptive_height: True
+
+                MDLabel:
+                    text: "Let’s get you onboard 🌱"
+                    halign: "left"
+                    font_style: "H6"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDTextField:
+                    id: name
+                    hint_text: "Your name"
+                    mode: "rectangle"
+
+                MDTextField:
+                    id: email_or_phone
+                    hint_text: "Campus email or Guest phone/email"
+                    mode: "rectangle"
+
+                MDBoxLayout:
+                    spacing: "10dp"
+                    adaptive_height: True
+
+                    MDRaisedButton:
+                        text: "🎓 Campus User"
+
+                        on_release: app.select_user_type("campus")
+
+                    MDRaisedButton:
+                        
+                        text: "👥 Guest"
+
+                        on_release: app.select_user_type("guest")
+
+                MDRaisedButton:
+                    text: "Send OTP ✨"
+                    size_hint_x: 1
+                    on_release: app.register()
+
+        MDLabel:
+            text: app.loading_fact
+            theme_text_color: "Hint"
+            halign: "center"
+            size_hint_y: None
+            height: self.texture_size[1]
+
+<HomeScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: "14dp"
+        padding: "18dp"
+
+        MDTopAppBar:
+            title: "Home"
+            elevation: 0
+            right_action_items:
+                [
+                ["bell-outline", lambda x: app.go("notifications")],
+                ["account-circle-outline", lambda x: app.go("profile")]
+                ]
+
+        # IMPACT HERO
+        MDCard:
+            padding: "16dp"
+            radius: [26, 26, 26, 26]
+            size_hint_y: None
+            height: self.minimum_height
+
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: "10dp"
+                adaptive_height: True
+
+                MDLabel:
+                    id: welcome
+                    text: "Welcome 🌍"
+                    font_style: "H5"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDLabel:
+                    id: co2_saved
+                    text: "CO₂ saved so far: -- kg"
+                    font_style: "H6"
+                    theme_text_color: "Secondary"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDLabel:
+                    text: "🍃 Every shared ride is cleaner air."
+                    theme_text_color: "Hint"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDLabel:
+                    text: app.eco_quote
+                    theme_text_color: "Secondary"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+        # QUICK ACTIONS
+        MDCard:
+            padding: "16dp"
+            radius: [26, 26, 26, 26]
+            size_hint_y: None
+            height: self.minimum_height
+
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: "12dp"
+                adaptive_height: True
+
+                MDLabel:
+                    text: "Quick actions ⚡"
+                    font_style: "H6"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDRaisedButton:
+                    id: post_btn
+                    text: "🚗 Post a Ride (Campus only)"
+                    on_release: app.go("post_ride")
+
+                MDRaisedButton:
+                    text: "🔍 Find a Ride"
+                    on_release: app.go("search")
+
+                MDFlatButton:
+                    text: "Refresh Impact 🌱"
+                    pos_hint: {"center_x": 0.5}
+                    on_release: app.refresh_profile()
