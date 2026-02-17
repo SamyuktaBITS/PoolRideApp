@@ -1,0 +1,14 @@
+# Root-level reference requirements
+# Install backend and mobile requirements separately
+
+python>=3.9
+
+# Backend
+fastapi
+uvicorn
+pydantic
+
+# Mobile App
+kivy
+kivymd
+requests
